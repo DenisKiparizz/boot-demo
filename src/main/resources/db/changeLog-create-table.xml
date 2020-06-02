@@ -1,0 +1,25 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2020-06-02" author="Denis Solodkiy" context="prod">
+        <createTable tableName="book">
+            <column name="bookId" type="bigInt" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="author" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="bookName" type="varchar(70)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="genre" type="varchar(20)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="book"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

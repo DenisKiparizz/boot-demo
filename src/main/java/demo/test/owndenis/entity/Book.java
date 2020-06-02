@@ -16,7 +16,7 @@ public class Book {
     private Long id;
     @Column(name = "author")
     private String author;
-    @Column(name = "name")
+    @Column(name = "bookName")
     private String name;
     @Enumerated(EnumType.STRING)
     @Column(name = "genre")
