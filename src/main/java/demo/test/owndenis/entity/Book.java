@@ -12,11 +12,11 @@ import javax.persistence.*;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "bookId")
+    @Column(name = "book_id")
     private Long id;
     @Column(name = "author")
     private String author;
-    @Column(name = "bookName")
+    @Column(name = "book_name")
     private String name;
     @Enumerated(EnumType.STRING)
     @Column(name = "genre")

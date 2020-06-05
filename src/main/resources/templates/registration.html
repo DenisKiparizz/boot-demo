@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sf="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Create User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<form action="#" th:action="@{/registration}" th:object="${user}" method="post">
+
+    <div>
+        <label for="username"> Username </label>
+        <input class="form-control" type="text" th:field="*{username}" name="username" th:placeholder="Username"
+               id="username">
+
+        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" style="color: red"></span>
+        <span style="color: red" th:if="${errorMessage != null}" class="error">User with this name exists!!!</span>
+
+    </div>
+
+    <div>
+        <label for="password"> Password </label>
+        <input type="text" th:field="*{password}" id="password" placeholder="Password">
+
+        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red"></span>
+        <span style="color: red" th:if="${passwordMessage != null}" class="error">Password mismatch</span>
+    </div>
+
+    <div>
+        <label for="passwordConfirm"> Confirm Password </label>
+        <input type="text" th:field="*{passwordConfirm}" id="passwordConfirm" placeholder="Confirm Password">
+
+        <span th:if="${#fields.hasErrors('passwordConfirm')}" th:errors="*{passwordConfirm}" style="color: red"></span>
+        <span style="color: red" th:if="${passwordMessage != null}" class="error">Password mismatch</span>
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Add">
+</form>
+</body>
+</html>

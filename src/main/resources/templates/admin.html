@@ -1,0 +1,33 @@
+    <!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>All Users</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    </head>
+
+    <body>
+    <div>
+        <table>
+            <thead>
+            <th>ID</th>
+            <th>UserName</th>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${user}">
+                <td><span th:text="${user.userId}"> id </span></td>
+                <td><span th:text="${user.username}"> Username </span></td>
+                <td>
+                    <form th:action="@{/admin/{id}(id=${user.userId})}" method="post">
+                        <input type="submit" value="delete">
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <p><a href="/registration">Add a new Person</a></p>
+        <a href="/">Main Page</a>
+    </div>
+    </body>
+    </html>

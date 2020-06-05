@@ -6,7 +6,7 @@
     <changeSet id="2020-06-02--17:00" author="Denis Solodkiy" context="prod">
         <insert tableName="book">
             <column name="author" value="Denis Solodkiy"/>
-            <column name="bookName" value="My own project"/>
+            <column name="book_name" value="My own project"/>
             <column name="genre" value="COMEDY"/>
         </insert>
     </changeSet>
@@ -14,8 +14,39 @@
     <changeSet id="2020-06-02--17:01" author="Denis Solodkiy" context="prod">
         <insert tableName="book">
             <column name="author" value="Karlos Kastaneda"/>
-            <column name="bookName" value="Don Huan Learning"/>
+            <column name="book_name" value="Don Huan Learning"/>
             <column name="genre" value="ISOTHERM"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2020-06-03--11:22" author="Denis Solodkiy" context="prod">
+
+        <insert tableName="user">
+            <column name="user_name" value="admin"/>
+            <column name="password" value="$2a$10$fgPbWn2Q4VktI3Mez7tc1Ox5iQANhnICF.VJ9E7O5QGJ7tbIJCAGy"/>
+        </insert>
+
+        <insert tableName="user">
+            <column name="user_name" value="user"/>
+            <column name="password" value="$2a$10$eY7lVzo42XBDSUQtaMFwr.A5fQAhHb4Ueqf8jfDyJczc0IOZjdQIC"/>
+        </insert>
+
+        <insert tableName="role">
+            <column name="role_name" value="ADMIN"/>
+        </insert>
+
+        <insert tableName="role">
+            <column name="role_name" value="USER"/>
+        </insert>
+
+        <insert tableName="user_roles">
+            <column name="user_id" valueNumeric="1"/>
+            <column name="role_id" valueNumeric="1"/>
+        </insert>
+
+        <insert tableName="user_roles">
+            <column name="user_id" valueNumeric="2"/>
+            <column name="role_id" valueNumeric="2"/>
         </insert>
     </changeSet>
 
