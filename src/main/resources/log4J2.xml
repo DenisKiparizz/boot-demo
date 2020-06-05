@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+            </encoder>
+        </appender>
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%highlight{%level}{FATAL=bg_red, ERROR=red, WARN=yellow, INFO=green, DEBUG=blue}] [%t]: %logger{36}.%M@L%L - %msg%n" disableAnsi="false"/>
+        </Console>
+        <File name="FILE" fileName="./loggers/logs.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%highlight{%level}{FATAL=bg_red, ERROR=red, WARN=yellow, INFO=green, DEBUG=blue}] [%t]: %logger{36}.%M@L%L - %msg%n" disableAnsi="false"/>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+        <Logger name="demo.test.owndenis" level="INFO" additivity="false">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="FILE"/>
+        </Logger>
+    </Loggers>
+</Configuration>
